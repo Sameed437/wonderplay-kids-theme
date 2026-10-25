@@ -1,7 +1,31 @@
-<div class="container" style="max-width: 860px; padding: 64px 24px;">
-  <h1 style="font-size: 2.6rem; text-align: center; margin-bottom: 32px;">{{ page.title }}</h1>
-  <div class="page-content" style="line-height: 1.8; color: #374151; font-size: 1.1rem;">
-    {{ page.content }}
+<div class="container" style="max-width: 900px; padding: clamp(48px, 7vw, 84px) clamp(16px, 3vw, 24px);">
+  <div style="text-align: center; margin-bottom: 40px;">
+    <span class="section-tag">Wonderplay Journal</span>
+    <h1 style="font-size: clamp(2.4rem, 4vw, 3.4rem); margin-top: 8px;">{{ page.title | default: 'Our Story' }}</h1>
+  </div>
+
+  <div class="page-content-card" style="background: #fff; border-radius: var(--radius-lg); border: 2px solid var(--color-border); padding: clamp(28px, 5vw, 48px); box-shadow: var(--shadow-card); line-height: 1.8; color: var(--color-dark); font-size: 1.1rem; font-weight: 500;">
+    {% if page.content != blank %}
+      {{ page.content }}
+    {% else %}
+      <div style="font-size: 1.25rem; font-family: var(--font-heading); font-weight: 700; color: var(--color-orange); margin-bottom: 16px;">
+        "Play is the highest form of research." &mdash; Albert Einstein
+      </div>
+      <p style="margin-bottom: 20px;">
+        Welcome to Wonderplay! We are a collective of parents, industrial designers, and child development specialists dedicated to creating toys that inspire curiosity, patience, and boundless creativity.
+      </p>
+      <h3 style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-dark); margin: 32px 0 12px;">Our Non-Toxic Commitment</h3>
+      <p style="margin-bottom: 20px;">
+        Every Wonderplay toy is engineered from sustainably harvested German beechwood, 100% food-grade silicone, and child-safe water-based stains. All our products exceed ASTM F963 (US) and EN71 (EU) strict safety testing standards.
+      </p>
+      <h3 style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-dark); margin: 32px 0 12px;">Need Assistance?</h3>
+      <p style="margin-bottom: 28px;">
+        Have questions about milestone recommendations or toy care? Our Customer Joy Team is always here to assist at <a href="mailto:support@wonderplay.com" style="color: var(--color-orange); font-weight: 800;">support@wonderplay.com</a>.
+      </p>
+      <a href="/collections/all" class="btn-motion-primary" style="display: inline-flex;">
+        <span>Explore The Catalog 🚀</span>
+      </a>
+    {% endif %}
   </div>
 </div>
 

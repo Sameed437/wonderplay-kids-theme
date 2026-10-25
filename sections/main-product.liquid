@@ -3,23 +3,24 @@
     
     <!-- Gallery -->
     <div class="product-gallery-luxury">
-      <div style="border-radius: var(--radius-lg); overflow: hidden; background: var(--color-surface-soft); border: 1px solid var(--color-border); box-shadow: var(--shadow-card);">
+      <div style="border-radius: var(--radius-lg); overflow: hidden; background: #FFFDF7; border: 3px solid var(--color-border); box-shadow: var(--shadow-card-hover);">
         {% if product.featured_image %}
           <img 
             src="{{ product.featured_image | image_url: width: 1000 }}" 
             alt="{{ product.title | escape }}" 
             style="width: 100%; aspect-ratio: 1; object-fit: cover;"
+            loading="eager"
           >
         {% else %}
-          <div style="display: flex; align-items: center; justify-content: center; aspect-ratio: 1; background: #F5EFEB; font-size: 4rem;">🧸</div>
+          <div style="display: flex; align-items: center; justify-content: center; aspect-ratio: 1; background: #FFF9EE; font-size: 5rem;">🧸</div>
         {% endif %}
       </div>
 
       {% if product.images.size > 1 %}
         <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 18px;">
           {% for img in product.images %}
-            <div style="border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--color-border); aspect-ratio: 1; cursor: pointer;">
-              <img src="{{ img | image_url: width: 250 }}" alt="{{ product.title | escape }}" style="width: 100%; height: 100%; object-fit: cover;">
+            <div style="border-radius: var(--radius-sm); overflow: hidden; border: 2px solid var(--color-border); aspect-ratio: 1; cursor: pointer;">
+              <img src="{{ img | image_url: width: 250 }}" alt="{{ product.title | escape }}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
             </div>
           {% endfor %}
         </div>
@@ -28,9 +29,10 @@
 
     <!-- Product Purchasing Info -->
     <div class="product-info-luxury">
-      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
         <span class="pill-tag pill-eco">Verified Child Safe</span>
         <span class="pill-tag pill-bestseller">Heirloom Quality</span>
+        <span class="pill-tag pill-stem">FSC® Beechwood</span>
       </div>
 
       <h1 style="font-size: clamp(2.2rem, 3.8vw, 3rem); line-height: 1.15; margin-bottom: 12px;">
@@ -38,21 +40,21 @@
       </h1>
 
       <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
-        <span style="color: #F59E0B; font-size: 1rem; letter-spacing: 2px;">★★★★★</span>
-        <span style="font-size: 0.88rem; font-weight: 700; color: var(--color-dark-muted);">4.95 / 5 (184 Parent Reviews)</span>
+        <span style="color: #F59E0B; font-size: 1.1rem; letter-spacing: 2px;">★★★★★</span>
+        <span style="font-size: 0.92rem; font-weight: 800; color: var(--color-dark-muted);">4.95 / 5 (184 Parent Reviews)</span>
       </div>
 
-      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--color-border-subtle);">
-        <span style="font-size: 2.2rem; font-weight: 800; color: var(--color-dark);">
+      <div style="display: flex; align-items: baseline; gap: 14px; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 2px dashed var(--color-border);">
+        <span style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 800; color: var(--color-dark);">
           {{ product.price | money | default: '$38.00' }}
         </span>
         {% if product.compare_at_price > product.price %}
-          <span style="font-size: 1.2rem; color: #9CA3AF; text-decoration: line-through;">
+          <span style="font-size: 1.3rem; color: #9CA3AF; text-decoration: line-through;">
             {{ product.compare_at_price | money }}
           </span>
         {% endif %}
-        <span style="font-size: 0.78rem; font-weight: 700; color: var(--color-sage); background: var(--color-sage-soft); padding: 4px 10px; border-radius: var(--radius-pill);">
-          In Stock & Ready to Ship
+        <span class="stock-dot-indicator">
+          In Stock &amp; Ready to Ship
         </span>
       </div>
 
@@ -65,38 +67,38 @@
             name="quantity" 
             value="1" 
             min="1" 
-            style="width: 76px; padding: 16px; border-radius: var(--radius-pill); border: 1px solid var(--color-border); text-align: center; font-weight: 800; font-size: 1.1rem; background: #fff;"
+            style="width: 80px; padding: 16px; border-radius: var(--radius-pill); border: 2px solid var(--color-border); text-align: center; font-weight: 800; font-size: 1.1rem; background: #fff; outline: none; font-family: var(--font-heading);"
           >
           <button 
             type="submit" 
-            class="btn-primary-luxury" 
-            style="flex-grow: 1; justify-content: center; font-size: 1.05rem;"
+            class="btn-motion-primary" 
+            style="flex-grow: 1; justify-content: center; font-size: 1.1rem; padding: 16px 32px;"
           >
-            🛒 Add to Toybox
+            <span>🛒 Add to Toybox</span>
           </button>
         </div>
       {% endform %}
 
       <!-- Trust Grid -->
-      <div style="background: var(--color-surface-soft); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 22px; margin-bottom: 32px;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; font-size: 0.88rem; font-weight: 700; color: var(--color-dark);">
+      <div style="background: #FFFDF9; border: 2px solid var(--color-border); border-radius: var(--radius-md); padding: 24px; margin-bottom: 32px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 0.92rem; font-weight: 700; color: var(--color-dark);">
           <div style="display: flex; align-items: center; gap: 8px;">
             <span>🌿</span> 100% Non-Toxic Water Paints
           </div>
           <div style="display: flex; align-items: center; gap: 8px;">
-            <span>🌲</span> FSC® European Linden Wood
+            <span>🌲</span> FSC® European Hardwood
           </div>
           <div style="display: flex; align-items: center; gap: 8px;">
             <span>📦</span> Free Tracked Shipping $50+
           </div>
           <div style="display: flex; align-items: center; gap: 8px;">
-            <span>💛</span> 30-Day Risk-Free Returns
+            <span>💛</span> 30-Day Smile Guarantee
           </div>
         </div>
       </div>
 
       <!-- Description Content -->
-      <div style="line-height: 1.8; color: var(--color-dark-muted); font-size: 1.05rem;">
+      <div style="line-height: 1.8; color: var(--color-dark-muted); font-size: 1.05rem; font-weight: 500;">
         {{ product.description }}
       </div>
     </div>

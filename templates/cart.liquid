@@ -1,39 +1,46 @@
-<div class="container" style="max-width: 900px; padding: 64px 24px;">
-  <h1 style="font-size: 2.4rem; margin-bottom: 32px; text-align: center;">Your Playroom Toybox 🎈</h1>
+<div class="container" style="max-width: 900px; padding: clamp(48px, 7vw, 84px) clamp(16px, 3vw, 24px);">
+  <div style="text-align: center; margin-bottom: 36px;">
+    <span class="section-tag">Playroom Checkout</span>
+    <h1 style="font-size: clamp(2.2rem, 3.8vw, 3rem); margin-top: 8px;">Your Toybox 🎈</h1>
+  </div>
 
   {% if cart.item_count > 0 %}
     <form action="{{ routes.cart_url }}" method="post" novalidate>
-      <div style="background: #fff; border-radius: var(--radius-lg); border: 1px solid var(--color-border); padding: 24px; box-shadow: var(--shadow-sm); margin-bottom: 32px;">
+      <div style="background: #fff; border-radius: var(--radius-lg); border: 2px solid var(--color-border); padding: clamp(20px, 4vw, 36px); box-shadow: var(--shadow-card); margin-bottom: 32px;">
         {% for item in cart.items %}
-          <div style="display: flex; gap: 20px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--color-border);">
-            <img src="{{ item.image | image_url: width: 120 }}" alt="{{ item.title | escape }}" style="width: 80px; height: 80px; object-fit: cover; border-radius: var(--radius-sm);">
+          <div style="display: flex; gap: 20px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--color-border);">
+            <img src="{{ item.image | image_url: width: 140 }}" alt="{{ item.title | escape }}" style="width: 80px; height: 80px; object-fit: cover; border-radius: var(--radius-sm); border: 2px solid var(--color-border);">
             <div style="flex-grow: 1;">
-              <a href="{{ item.url }}" style="font-weight: 800; font-size: 1.1rem; color: var(--color-dark);">{{ item.product.title }}</a>
+              <a href="{{ item.url }}" style="font-family: var(--font-heading); font-weight: 700; font-size: 1.1rem; color: var(--color-dark);">{{ item.product.title }}</a>
               {% unless item.variant.title contains 'Default' %}
-                <p style="font-size: 0.85rem; color: #64748B;">{{ item.variant.title }}</p>
+                <p style="font-size: 0.85rem; color: var(--color-dark-muted); margin-top: 2px;">{{ item.variant.title }}</p>
               {% endunless %}
-              <div style="margin-top: 4px; font-weight: 700;">{{ item.price | money }}</div>
+              <div style="margin-top: 6px; font-family: var(--font-heading); font-weight: 800; color: var(--color-orange); font-size: 1.15rem;">{{ item.price | money }}</div>
             </div>
-            <div style="font-weight: 800; font-size: 1rem;">Qty: {{ item.quantity }}</div>
-            <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" style="color: #EF4444; font-size: 0.9rem; font-weight: 700; margin-left: 16px;">Remove</a>
+            <div style="font-family: var(--font-heading); font-weight: 800; font-size: 1rem; color: var(--color-dark);">Qty: {{ item.quantity }}</div>
+            <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" style="color: #EF4444; font-size: 0.85rem; font-weight: 700; margin-left: 16px;">Remove</a>
           </div>
         {% endfor %}
 
-        <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 28px; flex-wrap: wrap; gap: 20px;">
           <div>
-            <h3 style="font-size: 1.4rem;">Subtotal: {{ cart.total_price | money }}</h3>
-            <p style="color: #64748B; font-size: 0.85rem;">Taxes and shipping calculated at checkout</p>
+            <div style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; color: var(--color-dark);">Subtotal: {{ cart.total_price | money }}</div>
+            <p style="color: var(--color-dark-muted); font-size: 0.9rem; font-weight: 600; margin-top: 4px;">Free Tracked Shipping automatically applied over $50</p>
           </div>
-          <button type="submit" name="checkout" class="btn btn-primary" style="padding: 16px 36px; font-size: 1.1rem;">
-            Proceed to Checkout &rarr;
+          <button type="submit" name="checkout" class="btn-motion-primary" style="padding: 16px 40px; font-size: 1.1rem;">
+            <span>Proceed to Checkout &rarr;</span>
           </button>
         </div>
       </div>
     </form>
   {% else %}
-    <div style="text-align: center; padding: 64px 0;">
-      <p style="font-size: 1.25rem; color: #64748B; margin-bottom: 24px;">Your toybox is currently empty!</p>
-      <a href="{{ routes.all_products_collection_url }}" class="btn btn-primary">Start Exploring Toys 🚀</a>
+    <div style="text-align: center; padding: 64px 0; background: #FFF; border-radius: var(--radius-lg); border: 2px solid var(--color-border); box-shadow: var(--shadow-card);">
+      <span style="font-size: 4rem; display: block; margin-bottom: 12px;">🧸</span>
+      <h3 style="font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 8px;">Your toybox is currently empty!</h3>
+      <p style="font-size: 1.1rem; color: var(--color-dark-muted); margin-bottom: 28px; font-weight: 600;">Let's fill it with joyful developmental toys!</p>
+      <a href="{{ routes.all_products_collection_url }}" class="btn-motion-primary" style="display: inline-flex;">
+        <span>Start Exploring Toys 🚀</span>
+      </a>
     </div>
   {% endif %}
 </div>

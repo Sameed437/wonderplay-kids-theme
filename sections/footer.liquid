@@ -3,7 +3,7 @@
     <div class="footer-editorial-grid">
       <!-- Col 1: Brand Logo & Tagline -->
       <div class="footer-col-brand">
-        <a href="{{ routes.root_url }}">
+        <a href="{{ routes.root_url }}" title="Wonderplay — Where Fun Begins!">
           <img 
             src="{{ 'logo.png' | asset_url }}" 
             alt="Wonderplay — Where Fun Begins!" 
@@ -17,9 +17,9 @@
           Inspiring curiosity, laughter, and lifelong learning with 100% non-toxic, screen-free, sustainably crafted toys.
         </p>
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <span style="font-family: var(--font-heading); font-size: 0.8rem; font-weight: 800; background: var(--color-green); color: #fff; padding: 4px 12px; border-radius: var(--radius-pill);">FSC® WOOD</span>
-          <span style="font-family: var(--font-heading); font-size: 0.8rem; font-weight: 800; background: var(--color-blue); color: #fff; padding: 4px 12px; border-radius: var(--radius-pill);">ASTM F963</span>
-          <span style="font-family: var(--font-heading); font-size: 0.8rem; font-weight: 800; background: var(--color-pink); color: #fff; padding: 4px 12px; border-radius: var(--radius-pill);">NON-TOXIC</span>
+          <span class="footer-pill-badge" style="background: var(--color-green);">FSC® WOOD</span>
+          <span class="footer-pill-badge" style="background: var(--color-blue);">ASTM F963</span>
+          <span class="footer-pill-badge" style="background: var(--color-pink);">NON-TOXIC</span>
         </div>
       </div>
 
@@ -27,10 +27,10 @@
       <div class="footer-col">
         <h5>Milestones</h5>
         <ul>
-          <li><a href="/collections/baby-toddler">🍼 Stage 01 (0-12M)</a></li>
-          <li><a href="/collections/baby-toddler">🧸 Stage 02 (1-2 Yrs)</a></li>
-          <li><a href="/collections/wooden-montessori">🧩 Stage 03 (3-5 Yrs)</a></li>
-          <li><a href="/collections/stem-learning">🚀 Stage 04 (6-8 Yrs)</a></li>
+          <li><a href="/collections/baby-toddler">🍼 Stage 01 (0–12M)</a></li>
+          <li><a href="/collections/baby-toddler">🧸 Stage 02 (1–2 Yrs)</a></li>
+          <li><a href="/collections/wooden-montessori">🧩 Stage 03 (3–5 Yrs)</a></li>
+          <li><a href="/collections/stem-learning">🚀 Stage 04 (6–8 Yrs)</a></li>
           <li><a href="/collections/creative-arts">🎨 Stage 05 (9+ Yrs)</a></li>
         </ul>
       </div>
@@ -41,9 +41,9 @@
         <ul>
           <li><a href="/collections/all">All Wonderful Toys</a></li>
           <li><a href="/collections/wooden-montessori">Montessori Wooden</a></li>
-          <li><a href="/collections/stem-learning">STEM & Robotics</a></li>
-          <li><a href="/collections/creative-arts">Arts & Crafts</a></li>
-          <li><a href="/collections/all">Top Bestsellers</a></li>
+          <li><a href="/collections/stem-learning">STEM &amp; Robotics</a></li>
+          <li><a href="/collections/creative-arts">Arts &amp; Crafts</a></li>
+          <li><a href="/collections/baby-toddler">Baby &amp; Teethers</a></li>
         </ul>
       </div>
 
@@ -53,8 +53,8 @@
         <ul>
           <li><a href="/pages/about-us">Why Wonderplay?</a></li>
           <li><a href="/pages/safety-sustainability">Safety Standards</a></li>
-          <li><a href="/pages/faq-toy-care">FAQ & Care Guide</a></li>
-          <li><a href="/pages/about-us">Eco Commitment</a></li>
+          <li><a href="/pages/faq-toy-care">FAQ &amp; Care Guide</a></li>
+          <li><a href="/pages/about-us">Sustainability Pledge</a></li>
         </ul>
       </div>
 
@@ -62,9 +62,11 @@
       <div class="footer-col">
         <h5>Customer Joy Team</h5>
         <p style="color: var(--color-dark-muted); font-size: 0.92rem; line-height: 1.5; margin-bottom: 12px; font-weight: 600;">
-          Questions about age milestones or toys? We're always happy to help!
+          Questions about toy selection or developmental stages? We're always happy to help!
         </p>
-        <p style="font-family: var(--font-heading); font-weight: 800; color: var(--color-orange); font-size: 1.1rem;">support@wonderplay.com</p>
+        <p style="font-family: var(--font-heading); font-weight: 800; color: var(--color-orange); font-size: 1.1rem;">
+          <a href="mailto:support@wonderplay.com">support@wonderplay.com</a>
+        </p>
         <p style="color: #6B7280; font-size: 0.85rem; margin-top: 4px;">Monday – Friday, 9am – 6pm EST</p>
       </div>
     </div>
@@ -72,9 +74,9 @@
     <!-- Sub Footer Bar -->
     <div class="footer-sub-bar">
       <div>
-        &copy; {{ 'now' | date: '%Y' }} Wonderplay — Where Fun Begins! Powered by Shopify.
+        &copy; {{ 'now' | date: '%Y' }} Wonderplay &mdash; Where Fun Begins! All rights reserved.
       </div>
-      <div style="display: flex; gap: 20px;">
+      <div style="display: flex; gap: 20px; flex-wrap: wrap;">
         <a href="/pages/about-us">Privacy Policy</a>
         <a href="/pages/about-us">Terms of Service</a>
         <a href="/pages/safety-sustainability">Safety Testing</a>

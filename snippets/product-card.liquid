@@ -1,4 +1,4 @@
-<div class="luxury-product-card">
+<div class="luxury-product-card tilt-card reveal-on-scroll">
   <div class="card-media-wrapper">
     {% if product.featured_image %}
       <a href="{{ product.url }}">
@@ -19,11 +19,13 @@
       {% for tag in product.tags %}
         {% if tag contains 'STEM' %}
           <span class="pill-tag pill-stem">STEM Certified</span>
-        {% elsif tag contains 'Eco' %}
+        {% elsif tag contains 'Eco' or tag contains 'Wood' %}
           <span class="pill-tag pill-eco">FSC Wood</span>
-        {% elsif tag contains 'Bestseller' %}
+        {% elsif tag contains 'Bestseller' or tag contains 'Favorite' %}
           <span class="pill-tag pill-bestseller">Parent Favorite</span>
         {% endif %}
+      {% else %}
+        <span class="pill-tag pill-bestseller">Parent Favorite</span>
       {% endfor %}
     </div>
 
@@ -31,14 +33,19 @@
     <div class="quick-add-overlay">
       {% if product.available %}
         <button 
+          type="button"
           class="btn-quick-add btn-add-card" 
           data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+          data-product-title="{{ product.title | escape }}"
+          data-product-price="{{ product.price | money }}"
+          data-product-img="{{ product.featured_image | image_url: width: 140 }}"
+          aria-label="Add {{ product.title | escape }} to Toybox"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
           Quick Add to Toybox
         </button>
       {% else %}
-        <button class="btn-quick-add" style="background: rgba(100, 100, 100, 0.9); cursor: not-allowed;" disabled>
+        <button type="button" class="btn-quick-add" style="background: rgba(100, 100, 100, 0.9); cursor: not-allowed;" disabled>
           Restocking Soon
         </button>
       {% endif %}
@@ -47,8 +54,8 @@
 
   <div class="card-details">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-      <span class="card-category">{{ product.type | default: 'WonderPlay' }}</span>
-      <span style="color: #F59E0B; font-size: 0.8rem; font-weight: 700;">★ 4.9</span>
+      <span class="card-category">{{ product.type | default: 'Wonderplay' }}</span>
+      <span style="color: #F59E0B; font-size: 0.85rem; font-weight: 800;">★★★★★ 4.9</span>
     </div>
 
     <h3 class="card-title">

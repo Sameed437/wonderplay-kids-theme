@@ -10,57 +10,88 @@
     <div class="hotspot-canvas reveal-on-scroll">
       <img 
         src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=1400&q=85" 
-        alt="Nordic styled playroom with curated toys" 
+        alt="Nordic styled playroom with curated developmental toys" 
         class="hotspot-main-image"
+        loading="lazy"
       >
 
       <!-- Pin 1: Montessori Rainbow -->
       <div class="hotspot-pin-wrapper" style="top: 42%; left: 32%;">
-        <button class="hotspot-pin" data-target="popover-1" aria-label="View Rainbow Stacker">
+        <button type="button" class="hotspot-pin" data-target="popover-1" aria-label="View Rainbow Stacker">
           <span class="pin-radar"></span>
           <span class="pin-dot">+</span>
         </button>
 
         <div id="popover-1" class="hotspot-popover">
-          <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=200&q=80" alt="Rainbow Stacker">
+          <button type="button" class="popover-close-btn" onclick="this.parentElement.classList.remove('is-active');" aria-label="Close">&times;</button>
+          <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=200&q=80" alt="Rainbow Stacker" loading="lazy">
           <div>
             <div class="popover-title">Montessori Wooden Rainbow</div>
             <div class="popover-price">$38.00</div>
-            <button class="popover-add-btn btn-add-card" data-variant-id="default">Add to Toybox</button>
+            <button 
+              type="button" 
+              class="popover-add-btn btn-add-card" 
+              data-variant-id="default"
+              data-product-title="Montessori Natural Wooden Rainbow Stacker"
+              data-product-price="$38.00"
+              data-product-img="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=140&q=80"
+            >
+              Add to Toybox
+            </button>
           </div>
         </div>
       </div>
 
       <!-- Pin 2: Calming Bear -->
-      <div class="hotspot-pin-wrapper" style="top: 60%; left: 68%;">
-        <button class="hotspot-pin" data-target="popover-2" aria-label="View Calming Bear">
+      <div class="hotspot-pin-wrapper align-right" style="top: 60%; left: 68%;">
+        <button type="button" class="hotspot-pin" data-target="popover-2" aria-label="View Calming Bear">
           <span class="pin-radar"></span>
           <span class="pin-dot">+</span>
         </button>
 
         <div id="popover-2" class="hotspot-popover">
-          <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=200&q=80" alt="Weighted Bear">
+          <button type="button" class="popover-close-btn" onclick="this.parentElement.classList.remove('is-active');" aria-label="Close">&times;</button>
+          <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=200&q=80" alt="Weighted Bear" loading="lazy">
           <div>
             <div class="popover-title">Barnaby Weighted Bear</div>
             <div class="popover-price">$34.00</div>
-            <button class="popover-add-btn btn-add-card" data-variant-id="default">Add to Toybox</button>
+            <button 
+              type="button" 
+              class="popover-add-btn btn-add-card" 
+              data-variant-id="default"
+              data-product-title="Barnaby the Calming Weighted Plush Bear"
+              data-product-price="$34.00"
+              data-product-img="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=140&q=80"
+            >
+              Add to Toybox
+            </button>
           </div>
         </div>
       </div>
 
       <!-- Pin 3: Pottery Studio -->
-      <div class="hotspot-pin-wrapper" style="top: 28%; left: 78%;">
-        <button class="hotspot-pin" data-target="popover-3" aria-label="View Pottery Wheel">
+      <div class="hotspot-pin-wrapper align-right" style="top: 28%; left: 78%;">
+        <button type="button" class="hotspot-pin" data-target="popover-3" aria-label="View Pottery Wheel">
           <span class="pin-radar"></span>
           <span class="pin-dot">+</span>
         </button>
 
         <div id="popover-3" class="hotspot-popover">
-          <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=200&q=80" alt="Pottery Studio">
+          <button type="button" class="popover-close-btn" onclick="this.parentElement.classList.remove('is-active');" aria-label="Close">&times;</button>
+          <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=200&q=80" alt="Pottery Studio" loading="lazy">
           <div>
             <div class="popover-title">Deluxe Pottery Wheel</div>
             <div class="popover-price">$44.00</div>
-            <button class="popover-add-btn btn-add-card" data-variant-id="default">Add to Toybox</button>
+            <button 
+              type="button" 
+              class="popover-add-btn btn-add-card" 
+              data-variant-id="default"
+              data-product-title="Deluxe Pottery Studio &amp; Sculpting Clay Kit"
+              data-product-price="$44.00"
+              data-product-img="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=140&q=80"
+            >
+              Add to Toybox
+            </button>
           </div>
         </div>
       </div>

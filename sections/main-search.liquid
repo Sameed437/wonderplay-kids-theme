@@ -1,12 +1,36 @@
-<div class="container" style="padding: 48px 24px;">
-  <h1 style="text-align: center; margin-bottom: 32px; font-size: 2.2rem;">Search Results for "{{ search.terms | escape }}"</h1>
-  <div class="products-grid">
+<div class="container" style="padding: clamp(40px, 6vw, 64px) clamp(16px, 4vw, 36px);">
+  <div style="text-align: center; max-width: 680px; margin: 0 auto 48px;">
+    <span class="section-tag">Catalog Search</span>
+    <h1 style="font-size: clamp(2rem, 3.5vw, 2.8rem); margin-bottom: 24px;">Search Results for &ldquo;{{ search.terms | escape }}&rdquo;</h1>
+    
+    <form action="/search" method="get" style="display: flex; gap: 10px; max-width: 480px; margin: 0 auto;">
+      <input 
+        type="search" 
+        name="q" 
+        value="{{ search.terms | escape }}" 
+        placeholder="Search toys, milestones, STEM..."
+        style="flex-grow: 1; padding: 14px 22px; border-radius: var(--radius-pill); border: 2px solid var(--color-border); font-family: var(--font-body); font-weight: 600; outline: none;"
+      >
+      <button type="submit" class="btn-motion-primary" style="padding: 14px 24px;">
+        <span>Search</span>
+      </button>
+    </form>
+  </div>
+
+  <div class="products-luxury-grid">
     {% for item in search.results %}
       {% if item.object_type == 'product' %}
         {% render 'product-card', product: item %}
       {% endif %}
     {% else %}
-      <p style="text-align: center; grid-column: 1 / -1; color: #64748B; padding: 48px 0;">No toys found matching your search. Try another word!</p>
+      <div style="text-align: center; grid-column: 1 / -1; padding: 64px 0;">
+        <span style="font-size: 3.5rem; display: block; margin-bottom: 12px;">🔍</span>
+        <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 8px;">No toys found matching your search</h3>
+        <p style="color: var(--color-dark-muted); font-size: 1rem; margin-bottom: 24px;">Try searching for &ldquo;stacker&rdquo;, &ldquo;robotics&rdquo;, &ldquo;wood&rdquo;, or &ldquo;teethers&rdquo;!</p>
+        <a href="/collections/all" class="btn-motion-primary" style="display: inline-flex;">
+          <span>Explore All Toys 🚀</span>
+        </a>
+      </div>
     {% endfor %}
   </div>
 </div>
