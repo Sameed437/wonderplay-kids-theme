@@ -1,0 +1,41 @@
+<section class="newsletter-editorial-wrap">
+  <div class="container">
+    <div class="newsletter-card-inner reveal-on-scroll">
+      <span class="section-tag" style="color: #FFC72C;">The WonderClub 🎈</span>
+      <h2 style="font-family: var(--font-heading); font-size: clamp(2.2rem, 3.8vw, 3.4rem); margin-bottom: 12px;">Get $15 Off Your First Toybox!</h2>
+      <p style="font-size: 1.15rem; color: #E2E8F0; max-width: 540px; margin: 0 auto 32px; font-weight: 600;">
+        Subscribe to receive monthly developmental play guides, secret holiday sales, and instant <strong>$15 savings</strong> on your first order.
+      </p>
+
+      {% form 'customer', class: 'newsletter-form-luxury' %}
+        <input type="hidden" name="contact[tags]" value="wonderclub_vip">
+        <input 
+          type="email" 
+          name="contact[email]" 
+          class="newsletter-input-luxury" 
+          placeholder="Enter your email address..." 
+          required
+        >
+        <button type="submit" class="newsletter-btn-luxury" style="background: linear-gradient(135deg, var(--color-yellow), var(--color-orange)); color: #2C3437; font-weight: 800; font-family: var(--font-heading);">
+          Join WonderClub 🚀
+        </button>
+      {% endform %}
+
+      <div style="margin-top: 18px; font-size: 0.82rem; color: #CBD5E1; font-weight: 600;">
+        🔒 Only screen-free inspiration &amp; exclusive treats. Unsubscribe anytime with 1 click.
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter Section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Newsletter Section"
+    }
+  ]
+}
+{% endschema %}

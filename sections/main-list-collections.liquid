@@ -1,0 +1,18 @@
+<div class="container" style="padding: 48px 24px;">
+  <h1 style="text-align: center; margin-bottom: 40px; font-size: 2.5rem;">Explore Toy Collections</h1>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+    {% for collection in collections %}
+      <a href="{{ collection.url }}" style="background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px; text-align: center; transition: var(--transition);">
+        <h3 style="font-size: 1.3rem; margin-bottom: 8px;">{{ collection.title }}</h3>
+        <p style="color: #64748B; font-size: 0.9rem;">{{ collection.all_products_count }} Products</p>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collections List",
+  "settings": []
+}
+{% endschema %}

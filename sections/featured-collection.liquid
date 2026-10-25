@@ -1,0 +1,298 @@
+{% assign collection = collections[section.settings.collection] | default: collections.all %}
+
+<section class="catalog-section">
+  <div class="container">
+    <div class="reels-header reveal-on-scroll">
+      <div>
+        <span class="section-tag">{{ section.settings.badge | default: 'Kid-Approved Essentials' }}</span>
+        <h2 class="section-heading-lg">{{ section.settings.title | default: 'Most-Loved Play Essentials' }}</h2>
+        <p class="section-subtext">Designed for endless open-ended play. Crafted from non-toxic, child-safe, planet-friendly materials.</p>
+      </div>
+
+      <div>
+        <a href="/collections/all" class="btn-motion-glass" style="color: var(--color-dark); border-color: var(--color-orange); font-size: 0.95rem; padding: 12px 24px;">
+          View All Toys (8) &rarr;
+        </a>
+      </div>
+    </div>
+
+    <div class="products-luxury-grid">
+      {% for product in collection.products limit: section.settings.products_to_show %}
+        {% render 'product-card', product: product %}
+      {% else %}
+        <!-- 1: Rainbow Stacker -->
+        <div class="luxury-product-card tilt-card reveal-on-scroll">
+          <div class="card-media-wrapper">
+            <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=700&q=80" alt="Montessori Wooden Rainbow">
+            <div class="card-pill-tags">
+              <span class="pill-tag pill-eco">FSC Wood</span>
+              <span class="pill-tag pill-bestseller">Parent Favorite</span>
+            </div>
+            <div class="quick-add-overlay">
+              <button class="btn-quick-add btn-add-card" data-variant-id="default">
+                + Quick Add to Toybox
+              </button>
+            </div>
+          </div>
+          <div class="card-details">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <span class="card-category">Montessori Wood</span>
+              <span style="color: #F59E0B; font-size: 0.85rem; font-weight: 800;">★★★★★ 5.0</span>
+            </div>
+            <h3 class="card-title"><a href="/collections/all">Montessori Natural Wooden Rainbow Stacker</a></h3>
+            <div class="card-pricing-row">
+              <div>
+                <span class="price-current">$38.00</span>
+                <span class="price-compare">$48.00</span>
+              </div>
+              <div class="stock-dot-indicator">In Stock</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2: Solar Robotics -->
+        <div class="luxury-product-card tilt-card reveal-on-scroll">
+          <div class="card-media-wrapper">
+            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=700&q=80" alt="Solar Robotics Kit">
+            <div class="card-pill-tags">
+              <span class="pill-tag pill-stem">STEM Certified</span>
+            </div>
+            <div class="quick-add-overlay">
+              <button class="btn-quick-add btn-add-card" data-variant-id="default">
+                + Quick Add to Toybox
+              </button>
+            </div>
+          </div>
+          <div class="card-details">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <span class="card-category">STEM &amp; Robotics</span>
+              <span style="color: #F59E0B; font-size: 0.85rem; font-weight: 800;">★★★★★ 4.9</span>
+            </div>
+            <h3 class="card-title"><a href="/collections/all">Solar &amp; Hydro Robotic Science Explorers Kit</a></h3>
+            <div class="card-pricing-row">
+              <div>
+                <span class="price-current">$49.50</span>
+                <span class="price-compare">$62.00</span>
+              </div>
+              <div class="stock-dot-indicator">In Stock</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3: Silicone Teethers -->
+        <div class="luxury-product-card tilt-card reveal-on-scroll">
+          <div class="card-media-wrapper">
+            <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=700&q=80" alt="Silicone Teethers">
+            <div class="card-pill-tags">
+              <span class="pill-tag pill-eco">Food-Grade Silicone</span>
+            </div>
+            <div class="quick-add-overlay">
+              <button class="btn-quick-add btn-add-card" data-variant-id="default">
+                + Quick Add to Toybox
+              </button>
+            </div>
+          </div>
+          <div class="card-details">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <span class="card-category">Baby &amp; Toddler</span>
+              <span style="color: #F59E0B; font-size: 0.85rem; font-weight: 800;">★★★★★ 4.9</span>
+            </div>
+            <h3 class="card-title"><a href="/collections/all">Organic Food-Grade Silicone Stacking Teethers</a></h3>
+            <div class="card-pricing-row">
+              <div>
+                <span class="price-current">$22.00</span>
+                <span class="price-compare">$28.00</span>
+              </div>
+              <div class="stock-dot-indicator">In Stock</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4: Magnetic Architecture Tiles -->
+        <div class="luxury-product-card tilt-card reveal-on-scroll">
+          <div class="card-media-wrapper">
+            <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=700&q=80" alt="Magnetic Tiles">
+            <div class="card-pill-tags">
+              <span class="pill-tag pill-stem">STEM Lab</span>
+              <span class="pill-tag pill-bestseller">Top Pick</span>
+            </div>
+            <div class="quick-add-overlay">
+              <button class="btn-quick-add btn-add-card" data-variant-id="default">
+                + Quick Add to Toybox
+              </button>
+            </div>
+          </div>
+          <div class="card-details">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <span class="card-category">STEM &amp; Building</span>
+              <span style="color: #F59E0B; font-size: 0.85rem; font-weight: 800;">★★★★★ 5.0</span>
+            </div>
+            <h3 class="card-title"><a href="/collections/all">Luminescent Magnetic Architectural Tiles Set</a></h3>
+            <div class="card-pricing-row">
+              <div>
+                <span class="price-current">$58.00</span>
+                <span class="price-compare">$75.00</span>
+              </div>
+              <div class="stock-dot-indicator">In Stock</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5: Weighted Bear -->
+        <div class="luxury-product-card tilt-card reveal-on-scroll">
+          <div class="card-media-wrapper">
+            <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=700&q=80" alt="Weighted Bear">
+            <div class="card-pill-tags">
+              <span class="pill-tag pill-bestseller">Top Pick</span>
+            </div>
+            <div class="quick-add-overlay">
+              <button class="btn-quick-add btn-add-card" data-variant-id="default">
+                + Quick Add to Toybox
+              </button>
+            </div>
+          </div>
+          <div class="card-details">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <span class="card-category">Plush &amp; Calm</span>
+              <span style="color: #F59E0B; font-size: 0.85rem; font-weight: 800;">★★★★★ 5.0</span>
+            </div>
+            <h3 class="card-title"><a href="/collections/all">Barnaby the Calming Weighted Plush Bear</a></h3>
+            <div class="card-pricing-row">
+              <div>
+                <span class="price-current">$34.00</span>
+                <span class="price-compare">$42.00</span>
+              </div>
+              <div class="stock-dot-indicator">In Stock</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6: Pottery Studio -->
+        <div class="luxury-product-card tilt-card reveal-on-scroll">
+          <div class="card-media-wrapper">
+            <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=700&q=80" alt="Pottery Studio">
+            <div class="card-pill-tags">
+              <span class="pill-tag pill-bestseller">New Craft</span>
+            </div>
+            <div class="quick-add-overlay">
+              <button class="btn-quick-add btn-add-card" data-variant-id="default">
+                + Quick Add to Toybox
+              </button>
+            </div>
+          </div>
+          <div class="card-details">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <span class="card-category">Arts &amp; Crafts</span>
+              <span style="color: #F59E0B; font-size: 0.85rem; font-weight: 800;">★★★★★ 4.9</span>
+            </div>
+            <h3 class="card-title"><a href="/collections/all">Deluxe Pottery Studio &amp; Sculpting Clay Kit</a></h3>
+            <div class="card-pricing-row">
+              <div>
+                <span class="price-current">$44.00</span>
+                <span class="price-compare">$55.00</span>
+              </div>
+              <div class="stock-dot-indicator">In Stock</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7: Balance Bike -->
+        <div class="luxury-product-card tilt-card reveal-on-scroll">
+          <div class="card-media-wrapper">
+            <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=700&q=80" alt="Balance Bike">
+            <div class="card-pill-tags">
+              <span class="pill-tag pill-eco">FSC Wood</span>
+            </div>
+            <div class="quick-add-overlay">
+              <button class="btn-quick-add btn-add-card" data-variant-id="default">
+                + Quick Add to Toybox
+              </button>
+            </div>
+          </div>
+          <div class="card-details">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <span class="card-category">Outdoor Play</span>
+              <span style="color: #F59E0B; font-size: 0.85rem; font-weight: 800;">★★★★★ 5.0</span>
+            </div>
+            <h3 class="card-title"><a href="/collections/all">Ergonomic Lightweight Wooden Balance Bike</a></h3>
+            <div class="card-pricing-row">
+              <div>
+                <span class="price-current">$89.00</span>
+                <span class="price-compare">$110.00</span>
+              </div>
+              <div class="stock-dot-indicator">In Stock</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8: Telescope -->
+        <div class="luxury-product-card tilt-card reveal-on-scroll">
+          <div class="card-media-wrapper">
+            <img src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=700&q=80" alt="Telescope">
+            <div class="card-pill-tags">
+              <span class="pill-tag pill-stem">STEM Lab</span>
+            </div>
+            <div class="quick-add-overlay">
+              <button class="btn-quick-add btn-add-card" data-variant-id="default">
+                + Quick Add to Toybox
+              </button>
+            </div>
+          </div>
+          <div class="card-details">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <span class="card-category">Science &amp; Optics</span>
+              <span style="color: #F59E0B; font-size: 0.85rem; font-weight: 800;">★★★★★ 4.9</span>
+            </div>
+            <h3 class="card-title"><a href="/collections/all">Astronomical Children's Refractor Telescope</a></h3>
+            <div class="card-pricing-row">
+              <div>
+                <span class="price-current">$64.00</span>
+                <span class="price-compare">$79.00</span>
+              </div>
+              <div class="stock-dot-indicator">In Stock</div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge Eyebrow",
+      "default": "Most-Loved By Families"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Essential Play Curations"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 4,
+      "max": 16,
+      "step": 4,
+      "default": 8,
+      "label": "Products to show"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collection"
+    }
+  ]
+}
+{% endschema %}

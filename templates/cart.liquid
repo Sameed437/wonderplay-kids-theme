@@ -1,0 +1,39 @@
+<div class="container" style="max-width: 900px; padding: 64px 24px;">
+  <h1 style="font-size: 2.4rem; margin-bottom: 32px; text-align: center;">Your Playroom Toybox 🎈</h1>
+
+  {% if cart.item_count > 0 %}
+    <form action="{{ routes.cart_url }}" method="post" novalidate>
+      <div style="background: #fff; border-radius: var(--radius-lg); border: 1px solid var(--color-border); padding: 24px; box-shadow: var(--shadow-sm); margin-bottom: 32px;">
+        {% for item in cart.items %}
+          <div style="display: flex; gap: 20px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--color-border);">
+            <img src="{{ item.image | image_url: width: 120 }}" alt="{{ item.title | escape }}" style="width: 80px; height: 80px; object-fit: cover; border-radius: var(--radius-sm);">
+            <div style="flex-grow: 1;">
+              <a href="{{ item.url }}" style="font-weight: 800; font-size: 1.1rem; color: var(--color-dark);">{{ item.product.title }}</a>
+              {% unless item.variant.title contains 'Default' %}
+                <p style="font-size: 0.85rem; color: #64748B;">{{ item.variant.title }}</p>
+              {% endunless %}
+              <div style="margin-top: 4px; font-weight: 700;">{{ item.price | money }}</div>
+            </div>
+            <div style="font-weight: 800; font-size: 1rem;">Qty: {{ item.quantity }}</div>
+            <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" style="color: #EF4444; font-size: 0.9rem; font-weight: 700; margin-left: 16px;">Remove</a>
+          </div>
+        {% endfor %}
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 24px;">
+          <div>
+            <h3 style="font-size: 1.4rem;">Subtotal: {{ cart.total_price | money }}</h3>
+            <p style="color: #64748B; font-size: 0.85rem;">Taxes and shipping calculated at checkout</p>
+          </div>
+          <button type="submit" name="checkout" class="btn btn-primary" style="padding: 16px 36px; font-size: 1.1rem;">
+            Proceed to Checkout &rarr;
+          </button>
+        </div>
+      </div>
+    </form>
+  {% else %}
+    <div style="text-align: center; padding: 64px 0;">
+      <p style="font-size: 1.25rem; color: #64748B; margin-bottom: 24px;">Your toybox is currently empty!</p>
+      <a href="{{ routes.all_products_collection_url }}" class="btn btn-primary">Start Exploring Toys 🚀</a>
+    </div>
+  {% endif %}
+</div>

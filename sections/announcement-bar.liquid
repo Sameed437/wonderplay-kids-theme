@@ -1,0 +1,44 @@
+{% if section.settings.show_announcement %}
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-left">
+        <span class="pulse-indicator"></span>
+        <span>{{ section.settings.text }}</span>
+        {% if section.settings.highlight_text != blank %}
+          <span class="announcement-code">{{ section.settings.highlight_text }}</span>
+        {% endif %}
+      </div>
+
+      <div class="announcement-right">
+        <span>📦 Free Worldwide Tracked Shipping Over $50</span>
+        <span>🛡️ 30-Day Happiness Guarantee</span>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show announcement",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement text",
+      "default": "New Season Play Kits Just Dropped — Take 15% Off With"
+    },
+    {
+      "type": "text",
+      "id": "highlight_text",
+      "label": "Promo Code",
+      "default": "WONDER15"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,65 @@
+<div id="cart-drawer-overlay" class="drawer-backdrop"></div>
+
+<aside id="cart-drawer" class="cart-slide-drawer" aria-label="Shopping Toybox">
+  <div class="drawer-header">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="font-size: 1.5rem;">🎈</span>
+      <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800;">Your Toybox</h3>
+    </div>
+    <button id="cart-drawer-close" class="drawer-close-btn" aria-label="Close cart">&times;</button>
+  </div>
+
+  <!-- Free Shipping Progress Tracker -->
+  <div class="shipping-tracker-box">
+    <p id="shipping-progress-text" class="shipping-text">
+      Add <strong>$12.00</strong> more to unlock <strong>FREE Tracked Shipping</strong>!
+    </p>
+    <div class="shipping-track-outer">
+      <div id="shipping-progress-bar" class="shipping-track-inner" style="width: 76%;"></div>
+    </div>
+  </div>
+
+  <!-- Items Container -->
+  <div class="drawer-body">
+    {% if cart.item_count > 0 %}
+      {% for item in cart.items %}
+        <div class="drawer-item-row">
+          <img src="{{ item.image | image_url: width: 140 }}" alt="{{ item.title | escape }}" class="drawer-item-img">
+          <div style="flex-grow: 1;">
+            <a href="{{ item.url }}" style="font-family: var(--font-heading); font-weight: 700; font-size: 1rem; color: var(--color-dark);">{{ item.product.title }}</a>
+            <div style="font-size: 0.85rem; color: #6B7280; margin-top: 2px;">{{ item.variant.title }}</div>
+            <div style="font-family: var(--font-heading); font-weight: 800; font-size: 1.1rem; margin-top: 6px; color: var(--color-orange);">{{ item.price | money }}</div>
+          </div>
+          <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" style="color: #9CA3AF; font-size: 0.85rem; font-weight: 700;">Remove</a>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="drawer-item-row">
+        <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=140&q=80" alt="Rainbow Stacker" class="drawer-item-img">
+        <div style="flex-grow: 1;">
+          <div style="font-family: var(--font-heading); font-weight: 700; font-size: 1rem; color: var(--color-dark);">Montessori Rainbow Stacker</div>
+          <div style="font-size: 0.85rem; color: #6B7280; margin-top: 2px;">Pastel Sunburst</div>
+          <div style="font-family: var(--font-heading); font-weight: 800; font-size: 1.1rem; margin-top: 6px; color: var(--color-orange);">$38.00</div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- Drawer Footer -->
+  <div class="drawer-footer">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+      <span style="font-family: var(--font-heading); font-weight: 700; font-size: 1.05rem;">Subtotal</span>
+      <span style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: var(--color-dark);">{{ cart.total_price | money | default: '$38.00' }}</span>
+    </div>
+
+    <form action="{{ routes.cart_url }}" method="post">
+      <button type="submit" name="checkout" class="btn-primary-luxury" style="width: 100%; justify-content: center; font-size: 1.15rem; padding: 18px;">
+        Secure Checkout &rarr;
+      </button>
+    </form>
+
+    <div style="display: flex; justify-content: center; gap: 14px; margin-top: 14px; color: #9CA3AF; font-size: 0.78rem; font-weight: 600;">
+      <span>🔒 256-Bit SSL Encrypted</span> &bull; <span>📦 Free 30-Day Returns</span>
+    </div>
+  </div>
+</aside>

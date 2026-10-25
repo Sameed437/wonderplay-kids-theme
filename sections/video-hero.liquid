@@ -1,0 +1,65 @@
+<section class="cinematic-video-hero">
+  <!-- Full Width Local Video Background -->
+  <div class="video-bg-frame">
+    <video 
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+      class="video-bg-element"
+      preload="auto"
+    >
+      <source src="{{ 'hero-video.mp4' | asset_url }}" type="video/mp4">
+    </video>
+    <div class="video-overlay-gradient"></div>
+  </div>
+
+  <!-- Perfectly Centered Hero Content -->
+  <div class="container video-hero-content-wrap">
+    <div class="video-badge-pill reveal-on-scroll">
+      <span class="pulse-emerald"></span>
+      <span>🎈 Wonderplay &bull; Where Fun Begins!</span>
+    </div>
+
+    <h1 class="video-hero-title reveal-on-scroll">
+      Where Imagination <br/>
+      <span class="highlight-yellow">Takes</span> <span class="highlight-blue">Flight!</span>
+    </h1>
+
+    <p class="video-hero-subtitle reveal-on-scroll">
+      Thoughtfully crafted, screen-free developmental toys designed by child psychologists. Built from sustainably harvested wood, food-grade silicone, and non-toxic dyes.
+    </p>
+
+    <div class="video-hero-actions reveal-on-scroll">
+      <a href="/collections/all" class="btn-motion-primary">
+        <span>Explore Toys 🚀</span>
+      </a>
+
+      <a href="#shoppable-reels" class="btn-motion-glass">
+        <span>Watch Toys In Action ▶</span>
+      </a>
+    </div>
+
+    <!-- Floating Live Social Proof Card -->
+    <div class="floating-motion-card reveal-on-scroll">
+      <div style="font-size: 1.6rem;">⭐</div>
+      <div style="text-align: left;">
+        <div style="font-family: var(--font-heading); font-weight: 700; font-size: 1rem; color: #fff;">Rated 4.95 / 5 by 14,000+ Families</div>
+        <div style="font-size: 0.8rem; color: #FFC72C;">Montessori Certified &bull; 100% Non-Toxic &bull; ASTM F963</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Animated Scroll Down Indicator -->
+  <a href="#marquee" class="scroll-down-pill" title="Scroll down">
+    <span>Scroll For Fun</span>
+    <div class="scroll-mouse-wheel"></div>
+  </a>
+</section>
+
+{% schema %}
+{
+  "name": "Cinematic Video Hero",
+  "settings": []
+}
+{% endschema %}

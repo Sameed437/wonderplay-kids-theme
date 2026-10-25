@@ -1,0 +1,23 @@
+{
+  "general": {
+    "search": "Search magical toys...",
+    "cart": "Cart",
+    "continue_shopping": "Continue Exploring Toys"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to Toybox",
+      "sold_out": "Restocking Soon",
+      "sale": "Save",
+      "price": "Price",
+      "regular_price": "Regular price",
+      "sale_price": "Special price"
+    }
+  },
+  "cart": {
+    "title": "Your Playroom Toybox",
+    "empty": "Your toybox is currently empty!",
+    "checkout": "Secure Checkout",
+    "subtotal": "Subtotal"
+  }
+}

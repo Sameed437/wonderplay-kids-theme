@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#FF7F32">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    <title>
+      {% if template == 'index' or template.name == 'index' %}
+        Wonderplay &ndash; Where Fun Begins!
+      {% elsif page_title and page_title != blank %}
+        {{ page_title | escape }} &ndash; {{ shop.name }}
+      {% else %}
+        Wonderplay &ndash; Where Fun Begins!
+      {% endif %}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    <!-- Google Kid-Friendly Bubbly Fonts: Fredoka & Quicksand -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700;800&family=Quicksand:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+    {{ content_for_header }}
+  </head>
+  <body class="wonderplay-bright-store">
+    {% section 'announcement-bar' %}
+    {% section 'header' %}
+
+    <main id="MainContent" role="main">
+      {{ content_for_layout }}
+    </main>
+
+    {% section 'footer' %}
+
+    <!-- Interactive Social Proof Toast -->
+    {% render 'social-proof-toast' %}
+
+    <!-- Ajax Slide-in Cart Drawer with Free Shipping Goal Tracker -->
+    {% render 'cart-drawer' %}
+
+    <!-- Theme Scripts & Motion Engine -->
+    {{ 'theme.js' | asset_url | script_tag }}
+    {{ 'motion.js' | asset_url | script_tag }}
+  </body>
+</html>

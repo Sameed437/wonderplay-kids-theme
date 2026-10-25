@@ -1,0 +1,71 @@
+<div class="luxury-product-card">
+  <div class="card-media-wrapper">
+    {% if product.featured_image %}
+      <a href="{{ product.url }}">
+        <img 
+          src="{{ product.featured_image | image_url: width: 700 }}" 
+          alt="{{ product.title | escape }}" 
+          loading="lazy"
+        >
+      </a>
+    {% else %}
+      <div style="display: flex; align-items: center; justify-content: center; height: 100%; background: #F3EFEA; color: #8C827A;">
+        <span style="font-size: 3rem;">🧸</span>
+      </div>
+    {% endif %}
+
+    <!-- Pill Tags -->
+    <div class="card-pill-tags">
+      {% for tag in product.tags %}
+        {% if tag contains 'STEM' %}
+          <span class="pill-tag pill-stem">STEM Certified</span>
+        {% elsif tag contains 'Eco' %}
+          <span class="pill-tag pill-eco">FSC Wood</span>
+        {% elsif tag contains 'Bestseller' %}
+          <span class="pill-tag pill-bestseller">Parent Favorite</span>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- Quick Add Button Overlay -->
+    <div class="quick-add-overlay">
+      {% if product.available %}
+        <button 
+          class="btn-quick-add btn-add-card" 
+          data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          Quick Add to Toybox
+        </button>
+      {% else %}
+        <button class="btn-quick-add" style="background: rgba(100, 100, 100, 0.9); cursor: not-allowed;" disabled>
+          Restocking Soon
+        </button>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="card-details">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+      <span class="card-category">{{ product.type | default: 'WonderPlay' }}</span>
+      <span style="color: #F59E0B; font-size: 0.8rem; font-weight: 700;">★ 4.9</span>
+    </div>
+
+    <h3 class="card-title">
+      <a href="{{ product.url }}">{{ product.title }}</a>
+    </h3>
+
+    <div class="card-pricing-row">
+      <div>
+        <span class="price-current">{{ product.price | money }}</span>
+        {% if product.compare_at_price > product.price %}
+          <span class="price-compare">{{ product.compare_at_price | money }}</span>
+        {% endif %}
+      </div>
+
+      <div class="stock-dot-indicator">
+        In Stock
+      </div>
+    </div>
+  </div>
+</div>
